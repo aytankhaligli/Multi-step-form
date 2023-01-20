@@ -12,7 +12,7 @@ export default function Plan({
   return (
     <div
       id={id}
-      className={`flex gap-3 items-center border border-light-gray rounded-md p-4 hover:border-purplish-blue hover:bg-alabaster transition-all md:h-40 md:flex-col md:justify-between md:items-start cursor-pointer active:border-purplish-blue active:bg-magnolia ${
+      className={`flex gap-3 h-20 items-center border border-light-gray rounded-md p-3 hover:border-purplish-blue hover:bg-alabaster transition-all md:h-40 md:flex-col md:justify-between md:items-start cursor-pointer active:border-purplish-blue active:bg-magnolia ${
         selected ? "border-purplish-blue bg-magnolia" : ""
       }`}
       onClick={choosePlan}
@@ -22,7 +22,7 @@ export default function Plan({
       </div>
       <div id={id}>
         <p className="text-marine-blue font-semibold" id={id}>
-          {header}{" "}
+          {header}
         </p>
         <p className="text-cool-gray tracking-wider " id={id}>
           {timePlan === "monthly" ? price_mo : price_yr}

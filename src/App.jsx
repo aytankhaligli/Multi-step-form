@@ -13,9 +13,14 @@ function App() {
   const [addOns, setAddOns] = useState("");
 
   const goNextStep = () => {
-    setStep((preStep) => preStep + 1);
+    if (step === 1 || step === 4) setStep((preStep) => preStep + 1);
+    if (step === 2) selectedPlan !== "" && setStep((preStep) => preStep + 1);
+    if (step === 3) addOns !== "" && setStep((preStep) => preStep + 1);
   };
   const goPrevStep = () => {
+    step === 3 && setTimePlan("monthly");
+    step === 3 && setSelectedPlan("");
+    setAddOns("");
     setStep((preStep) => preStep - 1);
   };
 
