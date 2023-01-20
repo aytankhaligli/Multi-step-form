@@ -12,3 +12,7 @@
     background-color: hsl(229, 24%, 87%);
   }
 }
+
+.toggle:checked + label::after {
+  transform: translateX(100%);
+}

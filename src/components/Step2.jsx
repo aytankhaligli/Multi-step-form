@@ -16,31 +16,8 @@ export default function Step2({
   }, [plans]);
 
   const changePlan = (e) => {
-    console.log(e);
     e.stopPropagation();
-    const el = e.target.firstElementChild;
-    if (
-      (e.pageX > 215 && e.pageX < 230) ||
-      (e.pageX > 255 && e.pageX < 275) ||
-      (e.pageX > 365 && e.pageX < 385) ||
-      (e.pageX > 710 && e.pageX < 730) ||
-      (e.pageX > 825 && e.pageX < 840) ||
-      e.pageX > 910
-    ) {
-      if (el) el.style.left = "60%";
-      setTimePlan("yearly");
-    }
-    if (
-      (e.pageX > 200 && e.pageX < 215) ||
-      (e.pageX > 240 && e.pageX < 255) ||
-      (e.pageX > 350 && e.pageX < 365) ||
-      (e.pageX > 695 && e.pageX < 710) ||
-      (e.pageX > 805 && e.pageX < 825) ||
-      (e.pageX > 895 && e.pageX < 910)
-    ) {
-      if (el) el.style.left = "4px";
-      setTimePlan("monthly");
-    }
+    setTimePlan((pre) => (pre === "monthly" ? "yearly" : "monthly"));
   };
 
   const choosePlan = (e) => {
@@ -82,15 +59,17 @@ export default function Step2({
           >
             Monthly
           </p>
-          <div
-            className="relative flex items-center w-10 h-5 rounded-full bg-marine-blue cursor-pointer"
-            onClick={(e) => changePlan(e)}
-          >
-            <div
-              className={`absolute w-3 h-3  rounded-full bg-white ${
-                timePlan === "monthly" ? "left-1" : "right-1"
-              }`}
-            ></div>
+          <div className="relative">
+            <input
+              type="checkbox"
+              id="check"
+              className="absolute cursor-pointer opacity-0 toggle"
+              onClick={changePlan}
+            />
+            <label
+              htmlFor="check"
+              className="flex items-center before:w-8 before:h-4 before:bg-marine-blue before:rounded-full after:absolute after:bg-white after:w-3.5 after:h-3.5 after:rounded-full after:left-0.5 "
+            ></label>
           </div>
           <p
             className={`${
