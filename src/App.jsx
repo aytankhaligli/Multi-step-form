@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-between container  md:grid md:grid-cols-3 md:p-4  h-screen md:bg-white md:h-128 w-screen md:w-4/5 mx-auto my-0 rounded-lg">
+    <div className="relative flex flex-col items-center justify-between container  md:grid md:grid-cols-3 md:p-4 md:mt-24  h-screen md:bg-white md:h-128 w-screen md:w-4/5 mx-auto my-0 rounded-lg">
       <Sidebar step={step} />
       {step === 1 && <Step1 goNextStep={goNextStep} />}
       {step === 2 && (

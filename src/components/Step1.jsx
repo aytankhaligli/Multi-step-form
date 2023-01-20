@@ -81,7 +81,7 @@ export default function Step1({ goNextStep }) {
  invalid:border-strawberry-red invalid:text-strawberry-red
             invalid:focus:border-strawberry-red
             `}
-            pattern="[+][0-9]{3} [0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}"
+            pattern="[+][0-9]{3}[0-9]{2}[0-9]{3}[0-9]{2}[0-9]{2}"
             onChange={(e) => {
               setNumber(e.target.value);
             }}
