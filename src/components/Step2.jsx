@@ -20,6 +20,7 @@ export default function Step2({
     e.stopPropagation();
     const el = e.target.firstElementChild;
     if (
+      (e.pageX > 195 && e.pageX < 210) ||
       (e.pageX > 215 && e.pageX < 230) ||
       (e.pageX > 255 && e.pageX < 275) ||
       (e.pageX > 365 && e.pageX < 385) ||
@@ -31,6 +32,7 @@ export default function Step2({
       setTimePlan("yearly");
     }
     if (
+      (e.pageX > 180 && e.pageX < 195) ||
       (e.pageX > 200 && e.pageX < 215) ||
       (e.pageX > 240 && e.pageX < 255) ||
       (e.pageX > 350 && e.pageX < 365) ||
