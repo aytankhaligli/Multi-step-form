@@ -16,10 +16,11 @@ export default function Step2({
   }, [plans]);
 
   const changePlan = (e) => {
-    // console.log(e);
+    console.log(e);
     e.stopPropagation();
     const el = e.target.firstElementChild;
     if (
+      (e.pageX > 215 && e.pageX < 230) ||
       (e.pageX > 255 && e.pageX < 275) ||
       (e.pageX > 365 && e.pageX < 385) ||
       (e.pageX > 710 && e.pageX < 730) ||
@@ -30,6 +31,7 @@ export default function Step2({
       setTimePlan("yearly");
     }
     if (
+      (e.pageX > 200 && e.pageX < 215) ||
       (e.pageX > 240 && e.pageX < 255) ||
       (e.pageX > 350 && e.pageX < 365) ||
       (e.pageX > 695 && e.pageX < 710) ||
