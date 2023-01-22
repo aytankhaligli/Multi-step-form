@@ -7,7 +7,7 @@ import Step4 from "./components/Step4";
 import Step5 from "./components/Step5";
 
 function App() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [timePlan, setTimePlan] = useState("monthly");
   const [selectedPlan, setSelectedPlan] = useState("");
   const [addOns, setAddOns] = useState("");
