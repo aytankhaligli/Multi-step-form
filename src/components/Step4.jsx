@@ -13,7 +13,11 @@ export default function Step4({ selectedPlan, timePlan, addOns, setStep }) {
         Double-check everything looks OK before confirming.
       </p>
       <div className="bg-magnolia rounded-md px-4 py-5 flex flex-col text-sm mb-7">
-        <div className="  flex justify-between items-center  pb-3 border-b border-light-gray shadow-sm">
+        <div
+          className={`flex justify-between items-center  pb-3 ${
+            addOns === "" ? "" : "border-b border-light-gray"
+          } `}
+        >
           <div className="">
             <p className="text-marine-blue font-semibold">
               {selectedPlan[0]?.header} ({timePlan})
@@ -32,14 +36,18 @@ export default function Step4({ selectedPlan, timePlan, addOns, setStep }) {
               : selectedPlan[0]?.price_yr}
           </div>
         </div>
-        {addOns?.map((add) => (
-          <div key={add.id} className="flex justify-between items-center pt-3">
-            <p className="text-cool-gray">{add.header}</p>
-            <p className="text-marine-blue">
-              {timePlan === "monthly" ? add.price_mo : add.price_yr}
-            </p>
-          </div>
-        ))}
+        {addOns !== "" &&
+          addOns?.map((add) => (
+            <div
+              key={add.id}
+              className="flex justify-between items-center pt-3"
+            >
+              <p className="text-cool-gray">{add.header}</p>
+              <p className="text-marine-blue">
+                {timePlan === "monthly" ? add.price_mo : add.price_yr}
+              </p>
+            </div>
+          ))}
       </div>
       <div className="flex justify-between items-center pt-3  px-4">
         <p className="text-cool-gray text-sm">
@@ -47,25 +55,25 @@ export default function Step4({ selectedPlan, timePlan, addOns, setStep }) {
         </p>
         <p className="text-purplish-blue font-semibold">
           +$
-          {`${
-            timePlan === "monthly"
+          {addOns === ""
+            ? timePlan === "monthly"
               ? (selectedPlan[0]?.price_mo.length === 5
                   ? +selectedPlan[0]?.price_mo.slice(1, 2)
-                  : +selectedPlan[0]?.price_mo.slice(1, 3)) +
-                addOns.reduce(
-                  (acc, add) => +add.price_mo.slice(2, 3) + acc,
-                  0
-                ) +
-                "/mo"
+                  : +selectedPlan[0]?.price_mo.slice(1, 3)) + "/mo"
               : (selectedPlan[0]?.price_yr.length === 6
                   ? +selectedPlan[0]?.price_yr.slice(1, 3)
-                  : +selectedPlan[0]?.price_yr.slice(1, 4)) +
-                addOns.reduce(
-                  (acc, add) => +add.price_yr.slice(2, 4) + acc,
-                  0
-                ) +
-                "/yr"
-          }`}
+                  : +selectedPlan[0]?.price_yr.slice(1, 4)) + "/yr"
+            : timePlan === "monthly"
+            ? (selectedPlan[0]?.price_mo.length === 5
+                ? +selectedPlan[0]?.price_mo.slice(1, 2)
+                : +selectedPlan[0]?.price_mo.slice(1, 3)) +
+              addOns?.reduce((acc, add) => +add.price_mo.slice(2, 3) + acc, 0) +
+              "/mo"
+            : (selectedPlan[0]?.price_yr.length === 6
+                ? +selectedPlan[0]?.price_yr.slice(1, 3)
+                : +selectedPlan[0]?.price_yr.slice(1, 4)) +
+              addOns?.reduce((acc, add) => +add.price_yr.slice(2, 4) + acc, 0) +
+              "/yr"}
         </p>
       </div>
     </div>

@@ -7,15 +7,17 @@ import Step4 from "./components/Step4";
 import Step5 from "./components/Step5";
 
 function App() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [timePlan, setTimePlan] = useState("monthly");
   const [selectedPlan, setSelectedPlan] = useState("");
   const [addOns, setAddOns] = useState("");
+  const [errorMsg, setErrorMsg] = useState(false);
 
   const goNextStep = () => {
-    if (step === 1 || step === 4) setStep((preStep) => preStep + 1);
+    if (step !== 2) setStep((preStep) => preStep + 1);
     if (step === 2) selectedPlan !== "" && setStep((preStep) => preStep + 1);
-    if (step === 3) addOns !== "" && setStep((preStep) => preStep + 1);
+    // if (step === 3) addOns !== "" && setStep((preStep) => preStep + 1);
+    if (selectedPlan === "") setErrorMsg(true);
   };
   const goPrevStep = () => {
     step === 3 && setTimePlan("monthly");
@@ -34,6 +36,7 @@ function App() {
           setTimePlan={setTimePlan}
           selectedPlan={selectedPlan}
           setSelectedPlan={setSelectedPlan}
+          errorMsg={errorMsg}
         />
       )}
       {step === 3 && (

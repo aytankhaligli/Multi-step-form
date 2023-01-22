@@ -12,7 +12,7 @@ export default function Plan({
   return (
     <div
       id={id}
-      className={`flex gap-3 h-20 items-center border border-light-gray rounded-md p-3 hover:border-purplish-blue hover:bg-alabaster transition-all md:h-40 md:flex-col md:justify-between md:items-start cursor-pointer active:border-purplish-blue active:bg-magnolia ${
+      className={`flex gap-3 h-20  items-center border border-light-gray rounded-md p-3 hover:border-purplish-blue hover:bg-alabaster transition-all md:h-36 md:flex-col md:justify-between md:items-start cursor-pointer active:border-purplish-blue active:bg-magnolia ${
         selected ? "border-purplish-blue bg-magnolia" : ""
       }`}
       onClick={choosePlan}
