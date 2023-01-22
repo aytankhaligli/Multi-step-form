@@ -17,7 +17,7 @@ function App() {
     if (step !== 2) setStep((preStep) => preStep + 1);
     if (step === 2) selectedPlan !== "" && setStep((preStep) => preStep + 1);
     // if (step === 3) addOns !== "" && setStep((preStep) => preStep + 1);
-    if (selectedPlan === "") setErrorMsg(true);
+    if (step === 2 && selectedPlan === "") setErrorMsg(true);
   };
   const goPrevStep = () => {
     step === 3 && setTimePlan("monthly");
